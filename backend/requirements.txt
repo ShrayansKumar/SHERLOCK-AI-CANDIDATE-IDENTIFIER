@@ -1,0 +1,50 @@
+# ------------------------
+# FastAPI
+# ------------------------
+fastapi
+uvicorn[standard]
+python-dotenv
+pydantic
+pydantic-settings
+python-multipart
+
+# ------------------------
+# Database
+# ------------------------
+sqlalchemy
+psycopg2-binary
+alembic
+
+# ------------------------
+# Redis
+# ------------------------
+redis
+
+# ------------------------
+# WebSocket
+# ------------------------
+websockets
+
+# ------------------------
+# Logging
+# ------------------------
+loguru
+
+# ------------------------
+# HTTP
+# ------------------------
+httpx
+
+# ------------------------
+# Testing
+# ------------------------
+pytest
+pytest-asyncio
+
+# ------------------------
+# Utilities
+# ------------------------
+numpy
+pandas
+email-validator
+
