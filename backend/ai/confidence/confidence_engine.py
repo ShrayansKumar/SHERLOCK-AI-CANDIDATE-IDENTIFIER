@@ -39,11 +39,19 @@ class ConfidenceEngine:
             min(1, participant.confidence)
         )
 
+        participant.last_reason = evidence.reason
+        participant.explanation = (
+            f"{evidence.evidence_type}: {evidence.reason}"
+        )
+        participant.fused_score = participant.confidence
         participant.last_updated = datetime.utcnow()
 
         self.history.add(
             pid,
-            participant.confidence
+            participant.confidence,
+            reason=evidence.reason,
+            evidence_type=evidence.evidence_type,
+            timestamp=participant.last_updated,
         )
 
         return participant

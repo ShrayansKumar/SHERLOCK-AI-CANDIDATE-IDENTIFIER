@@ -23,7 +23,7 @@ class ParticipantRepository:
         db: Session
     ):
 
-        return db.query(Participant).all()
+        return db.query(Participant).order_by(Participant.created_at.desc()).all()
 
 
     def get_by_id(
@@ -52,9 +52,42 @@ class ParticipantRepository:
         )
 
         if participant:
-
             db.delete(participant)
-
             db.commit()
+
+        return participant
+
+    def get_by_participant_identifier(
+        self,
+        db: Session,
+        participant_identifier: str,
+    ):
+        return (
+            db.query(Participant)
+            .filter(
+                Participant.participant_id == participant_identifier
+            )
+            .first()
+        )
+
+
+    def update_confidence(
+        self,
+        db: Session,
+        participant_identifier: str,
+        confidence: float,
+    ):
+        participant = self.get_by_participant_identifier(
+            db,
+            participant_identifier,
+        )
+
+        if participant is None:
+            return None
+
+        participant.confidence = confidence
+
+        db.commit()
+        db.refresh(participant)
 
         return participant

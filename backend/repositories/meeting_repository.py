@@ -25,7 +25,7 @@ class MeetingRepository:
         db: Session
     ):
 
-        return db.query(Meeting).all()
+        return db.query(Meeting).order_by(Meeting.created_at.desc()).all()
 
 
     def get_by_id(
@@ -38,4 +38,29 @@ class MeetingRepository:
             db.query(Meeting)
             .filter(Meeting.id == meeting_id)
             .first()
+        )
+
+
+    def get_by_string_id(
+        self,
+        db: Session,
+        meeting_id_str: str
+    ):
+
+        return (
+            db.query(Meeting)
+            .filter(Meeting.meeting_id == meeting_id_str)
+            .first()
+        )
+
+
+    def get_all_ordered(
+        self,
+        db: Session
+    ):
+
+        return (
+            db.query(Meeting)
+            .order_by(Meeting.created_at.desc())
+            .all()
         )

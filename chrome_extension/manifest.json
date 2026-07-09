@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Sherlock AI — Google Meet Live Bridge",
+  "version": "1.0.0",
+  "description": "100% Free real-time capture bridge connecting live Google Meet interviews to your local Sherlock AI Candidate Identifier.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://meet.google.com/*",
+    "http://127.0.0.1:8000/*",
+    "http://localhost:8000/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Sherlock AI Google Meet Bridge"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://meet.google.com/*"],
+      "js": ["content_script.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

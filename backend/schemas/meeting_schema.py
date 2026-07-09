@@ -1,4 +1,5 @@
 from typing import Optional
+from datetime import datetime
 
 from pydantic import BaseModel
 from pydantic import EmailStr
@@ -16,6 +17,12 @@ class MeetingCreate(BaseModel):
 
     interviewer_names: Optional[str] = None
 
+    job_role: Optional[str] = None
+
+    meeting_link: Optional[str] = None
+
+    expected_duration_minutes: Optional[int] = None
+
 
 class MeetingResponse(BaseModel):
 
@@ -32,6 +39,16 @@ class MeetingResponse(BaseModel):
     interviewer_names: Optional[str]
 
     status: str
+
+    job_role: Optional[str] = None
+
+    meeting_link: Optional[str] = None
+
+    expected_duration_minutes: Optional[int] = None
+
+    session_start: Optional[datetime] = None
+
+    session_end: Optional[datetime] = None
 
     model_config = {
         "from_attributes": True

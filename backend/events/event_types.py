@@ -13,6 +13,8 @@ class EventType(str, Enum):
 
     CAMERA_OFF = "camera_off"
 
+    CAMERA_NEVER_ON = "camera_never_on"
+
     MICROPHONE_ON = "microphone_on"
 
     MICROPHONE_OFF = "microphone_off"
@@ -28,6 +30,8 @@ class EventType(str, Enum):
     TRANSCRIPT_RECEIVED = "transcript_received"
 
     NETWORK_LAG = "network_lag"
+
+    SIMILAR_NAME_DETECTED = "similar_name_detected"
 
     RECONNECTED = "reconnected"
 

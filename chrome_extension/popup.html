@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Sherlock AI Meet Bridge</title>
+  <style>
+    body {
+      width: 320px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 16px;
+      background: #0f172a;
+      color: #f8fafc;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid #1e293b;
+      padding-bottom: 12px;
+    }
+    .title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #38bdf8;
+    }
+    .status-badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 600;
+      background: #1e293b;
+      color: #94a3b8;
+    }
+    .status-badge.active {
+      background: #065f46;
+      color: #34d399;
+    }
+    .form-group {
+      margin-bottom: 12px;
+    }
+    label {
+      display: block;
+      font-size: 12px;
+      color: #94a3b8;
+      margin-bottom: 4px;
+    }
+    input[type="text"] {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 8px 10px;
+      border-radius: 6px;
+      border: 1px solid #334155;
+      background: #1e293b;
+      color: #f8fafc;
+      font-size: 13px;
+    }
+    .btn {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-start {
+      background: #0284c7;
+      color: white;
+    }
+    .btn-start:hover {
+      background: #0369a1;
+    }
+    .btn-stop {
+      background: #dc2626;
+      color: white;
+      display: none;
+    }
+    .btn-stop:hover {
+      background: #b91c1c;
+    }
+    .logs {
+      margin-top: 14px;
+      padding: 8px;
+      background: #020617;
+      border-radius: 6px;
+      font-family: monospace;
+      font-size: 11px;
+      color: #38bdf8;
+      max-height: 110px;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="title">🔍 Sherlock AI Bridge</div>
+    <span id="statusBadge" class="status-badge">Idle</span>
+  </div>
+
+  <div class="form-group">
+    <label>Sherlock Backend API URL</label>
+    <input type="text" id="apiUrl" value="http://127.0.0.1:8000/api/v1">
+  </div>
+
+  <div class="form-group">
+    <label>Candidate Display Name to Track</label>
+    <input type="text" id="candidateName" value="Candidate">
+  </div>
+
+  <button id="startBtn" class="btn btn-start">▶ Start Live Capture</button>
+  <button id="stopBtn" class="btn btn-stop">■ Stop Capture</button>
+
+  <div id="logBox" class="logs">Ready to connect to Google Meet...</div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

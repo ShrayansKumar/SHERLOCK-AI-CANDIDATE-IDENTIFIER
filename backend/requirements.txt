@@ -47,4 +47,16 @@ pytest-asyncio
 numpy
 pandas
 email-validator
+sounddevice
+faster-whisper
 
+# ------------------------
+# Video AI (all optional — service degrades gracefully without them)
+# ------------------------
+opencv-python          # Core: frame sampling, face detection, eye contact
+# mediapipe            # Gesture recognition (pip install mediapipe)
+# deepface             # Emotion detection — best accuracy (pip install deepface)
+# fer                  # Emotion detection — lightweight alt (pip install fer)
+# pytesseract          # Background OCR (also needs: choco install tesseract)
+# face-recognition     # Identity consistency via dlib (pip install face-recognition)
+opencv-contrib-python

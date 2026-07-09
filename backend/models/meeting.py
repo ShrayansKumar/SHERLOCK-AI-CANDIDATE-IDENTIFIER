@@ -44,6 +44,31 @@ class Meeting(Base):
         default="scheduled"
     )
 
+    job_role = Column(
+        String(255),
+        nullable=True
+    )
+
+    meeting_link = Column(
+        String(500),
+        nullable=True
+    )
+
+    expected_duration_minutes = Column(
+        Integer,
+        nullable=True
+    )
+
+    session_start = Column(
+        DateTime,
+        nullable=True
+    )
+
+    session_end = Column(
+        DateTime,
+        nullable=True
+    )
+
     created_at = Column(
         DateTime(timezone=True),
         server_default=func.now()
